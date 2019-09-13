@@ -7,13 +7,19 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  const { type, data, error } = action;
+  const { type, data, id, error } = action;
 
   switch (type) {
     case GET_PERSON_PENDING:
       return Object.assign({}, state, { finished: false, error: null });
     case GET_PERSON_RESOLVED:
-      return Object.assign({}, state, { finished: true, data });
+      return Object.assign({}, state, {
+        finished: true,
+        data: {
+          ...state.data,
+          [id]: data,
+        }
+      });
     case GET_PERSON_FAILED:
       return Object.assign({}, state, { finished: true, error });
     default:

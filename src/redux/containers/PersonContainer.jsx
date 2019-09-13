@@ -12,13 +12,14 @@ class PersonContainer extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(this.props);
   return { person: state.person };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     getPersonPending: () => dispatch(actionGetPersonPending()),
-    getPersonResolved: (data) => dispatch(actionGetPersonResolved(data)),
+    getPersonResolved: (data, id) => dispatch(actionGetPersonResolved(data, id)),
     getPersonFailed: (error) => dispatch(actionGetPersonFailed(error)),
   };
 }

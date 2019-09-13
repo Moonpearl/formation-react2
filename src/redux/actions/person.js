@@ -6,9 +6,10 @@ export const actionGetPersonPending = () => ({
   type: GET_PERSON_PENDING,
 });
 
-export const actionGetPersonResolved = (data) => ({
+export const actionGetPersonResolved = (data, id) => ({
   type: GET_PERSON_RESOLVED,
   data,
+  id,
 });
 
 export const actionGetPersonFailed = (error) => ({
